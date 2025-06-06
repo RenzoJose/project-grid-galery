@@ -1,0 +1,321 @@
+*{box-sizing: border-box;}
+html{scroll-behavior: smooth;}
+body{
+    max-width: 1800px;
+    min-height: 100dvh;
+    margin: 0 auto;
+    display: grid;
+    grid-template: repeat(2, min-content) auto 9rem/ repeat(3, 1fr);
+}
+
+a{margin: 0; text-decoration: none;}
+header, footer{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-image: linear-gradient(to bottom, #e0dfe4, #f9f8ff);
+    border-radius:  1rem  1rem 2rem 2rem ;
+    padding: 1rem 0;
+    grid-column: 1/4; /*heredado del body grid*/
+}
+
+img{
+    width: 100%;
+    height: 100%;
+    /* max-width: 22rem; */
+    border-radius: 1.5rem;
+    aspect-ratio: 1/1;
+    transition: 0.5s;
+    /* object-fit: scale-down; */
+}
+/* contenedor del input search */
+.search-container{
+    position: relative;
+}
+.icon-lupa{
+    position: absolute;
+    top:22px;
+    left: 0.8rem;
+    z-index: 10;
+    /* padding-right: 0.8rem; */
+    
+}
+/* header */
+.logo{
+    font-family: 'Gill Sans', 'Gill Sans MT','Trebuchet MS', sans-serif;
+    font-size: clamp(0.9em, 5vw, 3em);
+    color:#b5121c;
+    font-weight: bolder;
+
+}
+.btn-header{
+    padding: 1rem 2.5rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+    border-radius: 3rem;
+    color: white;
+    box-shadow: 0 10px 40px rgba(159, 162, 177, 0.8);
+    
+
+}
+.boton-unete{
+    background-color: #c52929;
+}
+.boton-explorar{
+    background-color: #83818c;
+}
+.boton-explorar, .boton-unete{
+    margin-right: 0.8rem;
+}
+
+/* Barra de navegacion */
+.navegacion{
+    position: relative;
+    grid-column: span 3; /* heredado del body grid*/  
+
+    display: flex;
+    justify-content: space-around;
+    
+    width: 95%;
+    margin: 1rem auto 0;
+    overflow: hidden;
+    border-radius: 2.5rem ;
+     background-image: linear-gradient(to bottom, #eeecf4, #f9f8ff);
+    /* background-color: #ffff; */
+    box-shadow: 0 10px 40px rgba(159, 162, 177, 0.8);
+    /* padding: clamp(0.5em, 1vw, 1rem) ; */
+    
+}
+.navegacion__items{
+   
+    font-family: "DM Sans", sans-serif;
+    font-size: clamp(0.6em, 3.2vw, 2rem);
+    font-weight: 500;    
+    text-decoration: none;
+    color: #83818c;
+    padding: clamp(0.2em, 1vw, 1.5rem) ;
+ 
+}
+/* contendio con grid anidada */
+.container{
+    grid-column: span 3;
+    display: grid;
+    /* grid-template-columns: auto-fit subgrid; */
+    grid-template-columns: repeat(auto-fit, minmax(8rem, 15%));
+    grid-auto-rows: minmax(6.25rem, 12.5rem);
+    grid-auto-flow: dense;
+    justify-content: center;
+    overflow: hidden;
+    gap: 0.8rem;
+    padding-top: 1.5rem;
+
+}
+/* box padre de las imagenes que a su vez es hijo del container */
+.galeria{
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    /* box-shadow: 0 0 0.4rem rgb(81, 83, 87), 0 0 rgb(132, 134, 142); */
+
+}
+.box-footer{
+display: flex;
+justify-content: space-around;
+}
+.red-social-img{
+    width: 1.3rem;
+    height: 1.3rem;;
+}
+.galeria-img__5{
+    grid-column: span 2;
+}
+
+.galeria-img__10{
+    grid-column: span 2;
+}
+
+.galeria-img__11{
+    grid-row: span 2;
+}
+
+/* caja de efecto para las imagenes */
+.box-light{
+    position: fixed;
+    top:0;
+    left: 0;
+    z-index: 20;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    width: 100%;
+    height: 100vh;
+
+    background: rgb(0 0 0 / 0.5);
+    transform: scale(0); /* para que se oculte en escala cero*/
+}
+
+.box-light__img{
+    width: 65vw;
+    max-height: 70vh;
+}
+.cross-next{
+    color: white;
+  
+   font-size: 2.5rem;
+       
+}
+.closed{
+    position:absolute;
+    top: 1.5rem;
+    right: 4.5rem;
+}
+
+/* indicador del nav */
+.nav-indicator{
+    position: absolute;
+    bottom: 0;
+    left: 3.5%;
+    z-index: 10;
+
+    width: 10%;
+    height: 10%;
+    
+    border-radius: 2rem;
+    display: inline-block;
+    background-color: #b5121c;
+    transform: scale(0);
+}
+
+/* ajuste de los botones header*/
+@media screen and (width <=1280px) {
+    .empresa, .btn-unete, .serach-input{
+        display: none;
+        
+    }
+    .logo{
+        width: 100%;
+        text-align: center;
+    }
+    .icon-lupa{
+        top:-50px;
+    }
+    
+}
+/* reconfiguro la grid para tamaños mas grandes */
+@media screen and (min-width:680px){
+    .container{
+        
+        
+        grid-template-columns: repeat(auto-fit, minmax(12.5rem, 20rem));
+        grid-auto-rows: minmax(6.25rem, 12.5rem);
+        
+        gap: 0.5rem;
+        
+    }
+    
+    .galeria-img__1{
+        grid-row: span 3;
+    }
+    .galeria-img__2{
+        grid-row: auto;
+    }
+    .galeria-img__3{
+        grid-row: span 2;
+    }
+    .galeria-img__4{
+        grid-row: span 2;
+    }
+    
+    .galeria-img__5{
+        grid-column: auto;
+        grid-row: span 2;
+    }
+
+    .galeria-img__10{
+        grid-column: auto;
+    }
+
+    .galeria-img__11{
+        grid-row: auto;
+    }
+    
+}
+
+/* desaparece bloque direccion */
+@media screen and (width <=410px) {
+   .direccion{
+      display: none;
+   }
+}
+
+@media screen and (width <=255px) {
+       .galeria-img__1{
+        grid-row: auto;
+    }
+  
+    .galeria-img__3{
+        grid-row: auto;
+    }
+    .galeria-img__4{
+        grid-row: auto;
+    }
+
+    .galeria-img__5{
+        grid-column: auto;
+        grid-row: auto;
+    }
+
+    .galeria-img__10{
+        grid-column: auto;
+    }
+
+   
+    
+}
+/* input de busqueda del header */
+input[type=search]{
+    position: relative;
+    width: 12.5rem;
+    height: 2.5rem;
+    padding-left: 2.2rem;
+    border-radius: 2rem;
+    color: #83818c;
+    border: 0 rgb(132, 134, 142);
+    border: inset 0 rgb(132, 134, 142);
+}
+.navegacion__items:hover {
+  color: #971e1e;
+  transform: scale(1.1);
+}
+/* practica de llamado de objeto a traves del target */
+.box-light:target{
+    transform: scale(1) ;
+}
+.nav-indicator:target{
+    transform: scale(1);
+    left: 3.5%;
+}
+.indicator-2:target{
+    transform: scale(1);
+    left: 23%;
+}
+.indicator-3:target{
+    transform: scale(1);
+    left: 43.5%;
+}
+.indicator-4:target{
+    transform: scale(1);
+    left: 64.5%;
+}
+.indicator-5:target{
+    transform: scale(1);
+    left: 84.8%;
+}
+/* efecto en la imagen cuando el mause se posiciona con pseudo-clace hover */
+.galeria:hover img{
+    filter: blur(1px); /* efecto distorcion*/
+    transform: scale(1.3) rotate(10deg); /* que escale en tamaño  y rote */
+
+}
