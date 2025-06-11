@@ -180,23 +180,6 @@ justify-content: space-around;
     right: 4.5rem;
 }
 
-/* indicador del nav */
-/* .nav-indicator{
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 0.3rem;
-    z-index: 10; */
-
-    /* width: 10%; */
-    
-    /* transition: 0.4s;
-    border-radius: 8px 8px 0 0; */
-    /* display: inline-block; */
-    /* background-color: #b5121c; */
-    /* transform: scale(0);} */
-
-
 /* ajuste de los botones header*/
 @media screen and (width <=1280px) {
     .empresa, .btn-unete, .serach-input{
@@ -305,7 +288,7 @@ input[type=search]{
     height: 0.4rem;
     background-color: #e52020;
     border-radius: 8px 8px 0 0;
-    opacity: 0;
+    opacity: 0;  
 
     transition: 0.3s;
  
@@ -325,9 +308,7 @@ input[type=search]{
   transform: scale(1.1);
 } */
 /* practica de llamado de objeto a traves del target */
-.box-light:target{
-    transform: scale(1) ;
-}
+
 /* .nav-indicator:target{
     transform: scale(1);
     left: 3.5%;
@@ -348,6 +329,11 @@ input[type=search]{
     transform: scale(1);
     left: 84.8%;
 } */
+ 
+.box-light:target{
+    transform: scale(1) ;
+}
+
 /* efecto en la imagen cuando el mause se posiciona con pseudo-clace hover */
 .galeria:hover img{
     filter: blur(1px); /* efecto distorcion*/
